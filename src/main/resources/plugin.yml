@@ -1,4 +1,4 @@
-name: ProjectName
+name: RegrowthWelcome
 version: ${project.version}
-main: org.lushplugins.projectname.ProjectName
+main: org.lushplugins.regrowthwelcome.RegrowthWelcome
 api-version: '1.17'
