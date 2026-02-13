@@ -13,6 +13,7 @@ repositories {
     mavenCentral()
     maven("https://oss.sonatype.org/content/groups/public/")
     maven("https://repo.papermc.io/repository/maven-public/") // Paper
+    maven("https://repo.lushplugins.org/snapshots/") // LushLib
 }
 
 dependencies {
@@ -22,6 +23,7 @@ dependencies {
     // Soft Dependencies
 
     // Libraries
+    implementation("org.lushplugins:LushLib:0.10.84")
 }
 
 java {

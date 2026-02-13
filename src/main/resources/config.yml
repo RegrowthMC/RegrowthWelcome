@@ -1,0 +1,8 @@
+first-join-message: "<newline><#b7faa2>Welcome <#66b04f>%player%</#66b04f> to the server!<newline>"
+join-message: "<gradient:#b7faa2:#ffffff>Welcome back %player_display_name%!"
+quit-message: "<#b7faa2>Bye <#66b04f>%player_display_name%</#66b04f>, take care!"
+
+rewards:
+  enabled: false
+  experience: 15
+  reward-message: "<#b7faa2>You earned some experience for welcoming <#66b04f>%player%"
