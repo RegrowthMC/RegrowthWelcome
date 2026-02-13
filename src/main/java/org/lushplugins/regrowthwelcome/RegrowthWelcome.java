@@ -1,8 +1,10 @@
 package org.lushplugins.regrowthwelcome;
 
 import org.lushplugins.lushlib.plugin.SpigotPlugin;
+import org.lushplugins.regrowthwelcome.command.RegrowthWelcomeCommand;
 import org.lushplugins.regrowthwelcome.config.ConfigManager;
 import org.lushplugins.regrowthwelcome.listener.PlayerListener;
+import revxrsal.commands.bukkit.BukkitLamp;
 
 public final class RegrowthWelcome extends SpigotPlugin {
     private static RegrowthWelcome plugin;
@@ -20,6 +22,10 @@ public final class RegrowthWelcome extends SpigotPlugin {
         this.configManager.reload();
 
         registerListener(new PlayerListener());
+
+        BukkitLamp.builder(this)
+            .build()
+            .register(new RegrowthWelcomeCommand());
     }
 
     public ConfigManager getConfigManager() {
