@@ -8,8 +8,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.lushplugins.lushlib.libraries.chatcolor.ChatColorHandler;
-import org.lushplugins.lushlib.libraries.chatcolor.ModernChatColorHandler;
+import org.lushplugins.lushlib.libraries.chatcolor.paper.PaperColor;
 import org.lushplugins.regrowthwelcome.RegrowthWelcome;
 
 import java.time.Instant;
@@ -31,10 +30,10 @@ public class PlayerListener implements Listener {
                 this.timeout = Instant.now().getEpochSecond() + 30;
             }
 
-            event.joinMessage(ModernChatColorHandler.translate(RegrowthWelcome.getInstance().getConfigManager().getFirstJoinMessage()
+            event.joinMessage(PaperColor.handler().translate(RegrowthWelcome.getInstance().getConfigManager().getFirstJoinMessage()
                 .replace("%player%", player.getName()), player));
         } else {
-            event.joinMessage(ModernChatColorHandler.translate(RegrowthWelcome.getInstance().getConfigManager().getJoinMessage()
+            event.joinMessage(PaperColor.handler().translate(RegrowthWelcome.getInstance().getConfigManager().getJoinMessage()
                 .replace("%player%", player.getName()), player));
         }
     }
@@ -42,7 +41,7 @@ public class PlayerListener implements Listener {
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerQuit(PlayerQuitEvent event) {
         Player player = event.getPlayer();
-        event.quitMessage(ModernChatColorHandler.translate(RegrowthWelcome.getInstance().getConfigManager().getQuitMessage()
+        event.quitMessage(PaperColor.handler().translate(RegrowthWelcome.getInstance().getConfigManager().getQuitMessage()
             .replace("%player%", player.getName()), player));
     }
 
@@ -68,7 +67,7 @@ public class PlayerListener implements Listener {
             rewardedPlayers.add(uuid);
             player.giveExp(RegrowthWelcome.getInstance().getConfigManager().getRewardsConfig().getExperience());
 
-            ChatColorHandler.sendMessage(player, RegrowthWelcome.getInstance().getConfigManager().getRewardsConfig().getMessage()
+            PaperColor.handler().sendMessage(player, RegrowthWelcome.getInstance().getConfigManager().getRewardsConfig().getMessage()
                 .replace("%player%", playerName));
         }
     }

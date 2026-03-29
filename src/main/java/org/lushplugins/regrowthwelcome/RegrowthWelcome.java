@@ -1,6 +1,6 @@
 package org.lushplugins.regrowthwelcome;
 
-import org.lushplugins.lushlib.plugin.SpigotPlugin;
+import org.lushplugins.lushlib.utils.plugin.SpigotPlugin;
 import org.lushplugins.regrowthwelcome.command.RegrowthWelcomeCommand;
 import org.lushplugins.regrowthwelcome.config.ConfigManager;
 import org.lushplugins.regrowthwelcome.listener.PlayerListener;
