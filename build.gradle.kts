@@ -20,7 +20,8 @@ dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.7-R0.1-SNAPSHOT")
 
     // Libraries
-    implementation("org.lushplugins:LushLib:1.0.0")
+    implementation("org.lushplugins.lushlib:utils:1.0.2")
+    implementation("org.lushplugins.chatcolorhandler:paper:8.1.1")
     implementation("io.github.revxrsal:lamp.common:4.0.0-rc.18")
     implementation("io.github.revxrsal:lamp.bukkit:4.0.0-rc.18")
 }
@@ -42,6 +43,9 @@ tasks {
     }
 
     shadowJar {
+        enableAutoRelocation = true
+        relocationPrefix = "org.lushplugins.regrowthwelcome.libraries"
+
         minimize()
 
         archiveFileName.set("${project.name}-${project.version}.jar")

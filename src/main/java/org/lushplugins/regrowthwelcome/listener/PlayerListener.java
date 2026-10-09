@@ -8,7 +8,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.lushplugins.lushlib.libraries.chatcolor.paper.PaperColor;
+import org.lushplugins.chatcolorhandler.paper.PaperColor;
 import org.lushplugins.regrowthwelcome.RegrowthWelcome;
 
 import java.time.Instant;
