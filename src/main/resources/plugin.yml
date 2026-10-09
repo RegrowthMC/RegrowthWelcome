@@ -2,3 +2,4 @@ name: RegrowthWelcome
 version: ${project.version}
 main: org.lushplugins.regrowthwelcome.RegrowthWelcome
 api-version: '1.17'
+github-repo: RegrowthMC/RegrowthWelcome
