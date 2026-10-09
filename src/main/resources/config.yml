@@ -2,6 +2,10 @@ first-join-message: "<newline><#b7faa2>Welcome <#66b04f>%player%</#66b04f> to th
 join-message: "<gradient:#b7faa2:#ffffff>Welcome back %player_display_name%!"
 quit-message: "<#b7faa2>Bye <#66b04f>%player_display_name%</#66b04f>, take care!"
 
+first-join-commands: []
+join-commands: []
+quit-commands: []
+
 rewards:
   enabled: false
   experience: 15

@@ -4,10 +4,15 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.lushplugins.regrowthwelcome.RegrowthWelcome;
 
+import java.util.List;
+
 public class ConfigManager {
     private String firstJoinMessage;
     private String joinMessage;
     private String quitMessage;
+    private List<String> firstJoinCommands;
+    private List<String> joinCommands;
+    private List<String> quitCommands;
     private RewardsConfig rewards;
 
     public ConfigManager() {
@@ -21,6 +26,10 @@ public class ConfigManager {
         this.firstJoinMessage = config.getString("first-join-message");
         this.joinMessage = config.getString("join-message");
         this.quitMessage = config.getString("quit-message");
+
+        this.firstJoinCommands = config.getStringList("first-join-commands");
+        this.joinCommands = config.getStringList("join-commands");
+        this.quitCommands = config.getStringList("quit-commands");
 
         if (config.isConfigurationSection("rewards") && config.getBoolean("rewards.enabled")) {
             this.rewards = new RewardsConfig(config.getConfigurationSection("rewards"));
@@ -37,6 +46,18 @@ public class ConfigManager {
 
     public String getQuitMessage() {
         return quitMessage;
+    }
+
+    public List<String> getFirstJoinCommands() {
+        return firstJoinCommands;
+    }
+
+    public List<String> getJoinCommands() {
+        return joinCommands;
+    }
+
+    public List<String> getQuitCommands() {
+        return quitCommands;
     }
 
     public boolean areRewardsEnabled() {

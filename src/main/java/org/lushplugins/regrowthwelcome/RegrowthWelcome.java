@@ -1,10 +1,14 @@
 package org.lushplugins.regrowthwelcome;
 
+import org.bukkit.Bukkit;
+import org.bukkit.command.CommandSender;
 import org.lushplugins.lushlib.utils.plugin.SpigotPlugin;
 import org.lushplugins.regrowthwelcome.command.RegrowthWelcomeCommand;
 import org.lushplugins.regrowthwelcome.config.ConfigManager;
 import org.lushplugins.regrowthwelcome.listener.PlayerListener;
 import revxrsal.commands.bukkit.BukkitLamp;
+
+import java.util.List;
 
 public final class RegrowthWelcome extends SpigotPlugin {
     private static RegrowthWelcome plugin;
@@ -26,6 +30,13 @@ public final class RegrowthWelcome extends SpigotPlugin {
         BukkitLamp.builder(this)
             .build()
             .register(new RegrowthWelcomeCommand());
+    }
+
+    public void runConsoleCommands(List<String> commands) {
+        CommandSender console = Bukkit.getConsoleSender();
+        for (String command : commands) {
+            Bukkit.dispatchCommand(console, command);
+        }
     }
 
     public ConfigManager getConfigManager() {
