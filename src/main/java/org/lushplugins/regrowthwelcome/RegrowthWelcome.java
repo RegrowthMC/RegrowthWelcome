@@ -2,6 +2,8 @@ package org.lushplugins.regrowthwelcome;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.Nullable;
 import org.lushplugins.lushlib.utils.plugin.SpigotPlugin;
 import org.lushplugins.regrowthwelcome.command.RegrowthWelcomeCommand;
 import org.lushplugins.regrowthwelcome.config.ConfigManager;
@@ -32,10 +34,19 @@ public final class RegrowthWelcome extends SpigotPlugin {
             .register(new RegrowthWelcomeCommand());
     }
 
-    public void runConsoleCommands(List<String> commands) {
+    public void runCommands(List<String> commands, @Nullable Player player) {
         CommandSender console = Bukkit.getConsoleSender();
         for (String command : commands) {
-            Bukkit.dispatchCommand(console, command);
+            if (command.startsWith("player:")) {
+                command = command.substring("player:".length())
+                    .strip();
+
+                if (player != null) {
+                    Bukkit.dispatchCommand(player, command);
+                }
+            } else {
+                Bukkit.dispatchCommand(console, command);
+            }
         }
     }
 

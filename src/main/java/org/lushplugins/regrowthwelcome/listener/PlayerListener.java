@@ -30,16 +30,16 @@ public class PlayerListener implements Listener {
                 this.timeout = Instant.now().getEpochSecond() + 30;
             }
 
-            RegrowthWelcome.getInstance().runConsoleCommands(RegrowthWelcome.getInstance().getConfigManager().getFirstJoinCommands().stream()
+            RegrowthWelcome.getInstance().runCommands(RegrowthWelcome.getInstance().getConfigManager().getFirstJoinCommands().stream()
                 .map(str -> str.replace("%player%", player.getName()))
-                .toList());
+                .toList(), player);
 
             event.joinMessage(PaperColor.handler().translate(RegrowthWelcome.getInstance().getConfigManager().getFirstJoinMessage()
                 .replace("%player%", player.getName()), player));
         } else {
-            RegrowthWelcome.getInstance().runConsoleCommands(RegrowthWelcome.getInstance().getConfigManager().getJoinCommands().stream()
+            RegrowthWelcome.getInstance().runCommands(RegrowthWelcome.getInstance().getConfigManager().getJoinCommands().stream()
                 .map(str -> str.replace("%player%", player.getName()))
-                .toList());
+                .toList(), player);
 
             event.joinMessage(PaperColor.handler().translate(RegrowthWelcome.getInstance().getConfigManager().getJoinMessage()
                 .replace("%player%", player.getName()), player));
@@ -49,9 +49,9 @@ public class PlayerListener implements Listener {
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerQuit(PlayerQuitEvent event) {
         Player player = event.getPlayer();
-        RegrowthWelcome.getInstance().runConsoleCommands(RegrowthWelcome.getInstance().getConfigManager().getQuitCommands().stream()
+        RegrowthWelcome.getInstance().runCommands(RegrowthWelcome.getInstance().getConfigManager().getQuitCommands().stream()
             .map(str -> str.replace("%player%", player.getName()))
-            .toList());
+            .toList(), player);
 
         event.quitMessage(PaperColor.handler().translate(RegrowthWelcome.getInstance().getConfigManager().getQuitMessage()
             .replace("%player%", player.getName()), player));
